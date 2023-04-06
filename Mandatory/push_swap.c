@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:05 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/03 05:43:28 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/06 00:27:05 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char  *get_digits(char const *str1, char *str2 )
     free(str2);
     return (tmp);
 }
-int has_duplicate(int *stack_a, int size) {
+int has_duplicate(int *array_a, int size) {
     int i;
     int j;
 
@@ -29,8 +29,8 @@ int has_duplicate(int *stack_a, int size) {
     while (i < size - 1) {
         j = i + 1;
         while (j < size) {
-            if (stack_a[i] == stack_a[j]) {
-                free (stack_a);
+            if (array_a[i] == array_a[j]) {
+                free (array_a);
                 return 1;
             }
             j++;
@@ -39,7 +39,7 @@ int has_duplicate(int *stack_a, int size) {
     }
     return 0;
 }
-int *fill_stack(int *stack_a, char *str , int* argc)
+int *fill_stack(int *array_a, char *str , int* argc)
 {
     char **mtr;
     int i;
@@ -48,19 +48,19 @@ int *fill_stack(int *stack_a, char *str , int* argc)
     mtr = ft_split(str,' ');
     while(mtr[i])
         i++;
-    if (!stack_a)
-        stack_a = (int *)malloc(i * sizeof(int));
+    if (!array_a)
+        array_a = (int *)malloc(i * sizeof(int));
     i = 0;
     while (mtr[i])
     {
         error_handler(mtr[i]);
-        stack_a[i] = ft_atoi(mtr[i]);
+        array_a[i] = ft_atoi(mtr[i]);
         free(mtr[i]);
         i++;
     }
     free(mtr);
     *argc = i;
-    return (stack_a);
+    return (array_a);
 }
 
 int only_numbers (char const *str)
@@ -137,8 +137,8 @@ int main(int argc, char const *argv[])
 {
     int i;
     char *str;
-    int *stack_a;
-    int *stack_b;
+    int *array_a;
+    t_list *stack_a;
     
     i = 1;
     if (!str)
@@ -149,13 +149,19 @@ int main(int argc, char const *argv[])
     {
         while(i < argc)
             str = get_digits(argv[i++],str);    
-        stack_a = fill_stack(stack_a,str,&argc);
-        if(has_duplicate(stack_a,argc))
+        array_a = fill_stack(array_a,str,&argc);
+        if(has_duplicate(array_a,argc))
         {
             ft_printf("Error_has_duplicate");
             exit (1);
         }
-        in_order(stack_a,argc);
+        stack_a = ArrayLinkedList(array_a,argc);
     }
+    while (stack_a)
+    {
+        ft_printf("%d\n",stack_a->content);
+        stack_a = stack_a->next;
+    }
+    sa(&stack_a);
     return 0;
 }

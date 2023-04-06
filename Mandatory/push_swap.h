@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:34 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/03 02:47:57 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/06 00:25:59 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+typedef struct s_list 
+{
+    int content;
+    struct s_list *next;
+}t_list;
 
 int	ft_printf(const char *format, ...);
 int	ft_putchar(int c);
@@ -31,4 +36,10 @@ void error_handler(char const *str);
 int only_numbers (char const *str);
 int ft_only_space(const char *str);
 void in_order(int *stk_a , int size);
+int ft_lstsize(t_list *list);
+t_list	*ft_lstnew(int content);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+t_list	*ArrayLinkedList(int *arr, int size);
+void sa(t_list **stack_a);
 #endif

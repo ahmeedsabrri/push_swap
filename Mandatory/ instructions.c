@@ -6,19 +6,33 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 17:43:03 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/03 02:16:09 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/06 00:25:46 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void sa(int *stack_a , int *stack_b)
-// {
-//    int i; 
-//    i = 0;
+void sa(t_list **stack_a)
+{
+    t_list *tmp;
+    t_list *tmp2;
 
-    
-// }
+    tmp = *stack_a;
+    if (ft_lstsize(*stack_a) > 2)
+    {
+        tmp2 = (*stack_a)->next->next;
+        (*stack_a) = (*stack_a)->next;
+        tmp = tmp2->next;
+        (*stack_a) = tmp->next;
+    }
+    else
+    {
+        (*stack_a) = (*stack_a)->next;
+        (*stack_a) = tmp->next;
+        tmp = NULL;
+    }
+    ft_printf("sa");
+}
 // void sb(int *stack_a , int *stack_b)
 // {
    

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    instructions.c                                    :+:      :+:    :+:   */
+/*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 17:43:03 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/06 00:25:46 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/06 00:45:44 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void sa(t_list **stack_a)
     t_list *tmp2;
 
     tmp = *stack_a;
+    ft_printf("sa");
     if (ft_lstsize(*stack_a) > 2)
     {
         tmp2 = (*stack_a)->next->next;
@@ -29,7 +30,7 @@ void sa(t_list **stack_a)
     {
         (*stack_a) = (*stack_a)->next;
         (*stack_a) = tmp->next;
-        tmp = NULL;
+        tmp->next = NULL;
     }
     ft_printf("sa");
 }

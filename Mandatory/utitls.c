@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 23:53:50 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/06 00:10:03 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/06 23:57:40 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ int ft_lstsize(t_list *list)
 t_list	*ft_lstnew(int content)
 {
 	t_list	*new;
+	static int i;
 
 	new = malloc(sizeof (t_list));
 	if (!new)
 		return (NULL);
 	new->content = content;
 	new->next = NULL;
+	new->index = i++;
 	return (new);
 }
 t_list	*ft_lstlast(t_list *lst)
@@ -73,4 +75,10 @@ t_list	*ArrayLinkedList(int *arr, int size)
     while (++i < size)	
         ft_lstadd_back(&stack, ft_lstnew(arr[i]));
 	return (stack);
+}
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	new->next = *lst;
+	*lst = new;
 }

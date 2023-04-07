@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:05 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/06 00:27:05 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/07 05:23:13 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ int main(int argc, char const *argv[])
     char *str;
     int *array_a;
     t_list *stack_a;
+    t_list  *stack_b;
     
     i = 1;
     if (!str)
@@ -157,11 +158,6 @@ int main(int argc, char const *argv[])
         }
         stack_a = ArrayLinkedList(array_a,argc);
     }
-    while (stack_a)
-    {
-        ft_printf("%d\n",stack_a->content);
-        stack_a = stack_a->next;
-    }
-    sa(&stack_a);
+    sort_algo3(&stack_a, &stack_b);
     return 0;
 }

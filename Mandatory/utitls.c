@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 23:53:50 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/06 23:57:40 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/07 20:45:24 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ t_list	*ft_lstnew(int content)
 		return (NULL);
 	new->content = content;
 	new->next = NULL;
-	new->index = i++;
 	return (new);
 }
 t_list	*ft_lstlast(t_list *lst)

@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:05 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/07 05:23:13 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/08 02:36:02 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,17 +118,29 @@ int ft_only_space(const char *str)
     }
     return (0);
 }
+int if_sorted(int *stack , int size)
+{
+    int i;
 
+    i = 0;
+    while (i < size)
+    {
+        if (stack[i] > stack[i + 1])
+            return (0);
+        i++;
+    }
+    return (1);
+}
 void error_handler(char const *str)
 {
     if(!(only_numbers(str)))
     {
-        ft_printf("Error_onlyunumbr");
+        ft_printf("Error");
         exit (1);
     }
     if (!(ft_only_space(str)))
     {
-        ft_printf("Error_onlyspace");
+        ft_printf("Error");
         exit (1);
     } 
 }
@@ -144,20 +156,33 @@ int main(int argc, char const *argv[])
     i = 1;
     if (!str)
         str = (char *)malloc(1 * sizeof(char));
-    if(argc <= 1)
-        exit(0);
-    else
+    if (argc > 1)
     {
         while(i < argc)
             str = get_digits(argv[i++],str);    
         array_a = fill_stack(array_a,str,&argc);
         if(has_duplicate(array_a,argc))
         {
-            ft_printf("Error_has_duplicate");
+            ft_printf("Error");
+            exit (1);
+        }
+        else if(if_sorted(array_a,argc))
+        {
+            ft_printf("Error");
             exit (1);
         }
         stack_a = ArrayLinkedList(array_a,argc);
     }
-    sort_algo3(&stack_a, &stack_b);
+    // if (argc <= 3)
+    //     sort_algo1(&stack_a);
+    // if (argc <= 5)
+    //     sort_algo2(&stack_a, &stack_b);
+    // if (argc <=500)
+    sort_algo3(&stack_a,&stack_b);
+    while(stack_b)
+    {
+        ft_printf("%d\n",stack_b->content);
+        stack_b = stack_b->next;
+    }
     return 0;
 }

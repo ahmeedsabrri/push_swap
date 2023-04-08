@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:34 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/07 05:21:02 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/08 01:34:42 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ t_list	*ArrayLinkedList(int *arr, int size);
 void sort_algo1(t_list **stack_a);
 void sort_algo2(t_list **stack_a, t_list **stack_b);
 void sort_algo3(t_list **stack_a, t_list **stack_b);
+void index_min(t_list **stack);
 #endif

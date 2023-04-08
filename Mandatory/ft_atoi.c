@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 04:47:23 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/03 01:16:26 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/07 06:29:57 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_atoi(char *str)
 	{
 		if (*(str+ 1) < '0' || *(str+ 1) > '9')
 		{
-			ft_printf("error");
+			ft_printf("Error");
 			exit (1);
 		}
 		str++;
@@ -45,7 +45,7 @@ int	ft_atoi(char *str)
 	res = res * sign;
 	if (res > 2147483647 || res < -2147483648)
 	{
-		ft_printf("Error ds");
+		ft_printf("Error");
 		exit (1);
 	}
 	return (res);

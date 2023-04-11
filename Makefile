@@ -6,13 +6,13 @@
 #    By: asabri <asabri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/26 04:53:49 by asabri            #+#    #+#              #
-#    Updated: 2023/04/07 05:22:56 by asabri           ###   ########.fr        #
+#    Updated: 2023/04/11 08:24:26 by asabri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 SRC = Mandatory/ft_strlen.c Mandatory/ft_printf_utils.c Mandatory/ft_printf.c Mandatory/ft_printf_d.c Mandatory/ft_strjoin.c Mandatory/ft_split.c \
-	Mandatory/ft_atoi.c Mandatory/ft_substr.c Mandatory/stack_sort.c Mandatory/utitls.c Mandatory/instructions.c Mandatory/sort_algo1.c Mandatory/sor_algo2.c Mandatory/sort_algo3.c
+	Mandatory/ft_atoi.c Mandatory/ft_substr.c Mandatory/utitls.c Mandatory/instructions1.c Mandatory/instructions2.c Mandatory/instructions3.c Mandatory/instructions4.c Mandatory/sort_algo1.c Mandatory/sor_algo2.c Mandatory/sort_algo3.c
 OBJS = $(SRC:.c=.o)
 
 CC = cc

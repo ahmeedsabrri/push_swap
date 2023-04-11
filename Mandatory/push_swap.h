@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:34 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/08 01:34:42 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/10 07:02:16 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*arraylinkedList(char **arr);
 void swap(t_list **stack);
 void sa(t_list **stack_a);
+void sb(t_list **stack_b);
 void ss(t_list **stack_b, t_list **stack_a);
 void push(t_list **src, t_list **dst);
 void pa(t_list **a , t_list **b);

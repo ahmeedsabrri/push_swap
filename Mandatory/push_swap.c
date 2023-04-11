@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:05 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/11 08:22:17 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/11 09:09:01 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,7 @@ char  *get_digits(char const *str1, char *str2 )
     free(str2);
     return (tmp);
 }
-int has_duplicate(int *array_a, int size) {
-    int i;
-    int j;
 
-    i = 0;
-    while (i < size - 1) {
-        j = i + 1;
-        while (j < size) {
-            if (array_a[i] == array_a[j]) {
-                free (array_a);
-                return 1;
-            }
-            j++;
-        }
-        i++;
-    }
-    return 0;
-}
 int *fill_stack(int *array_a, char *str , int* argc)
 {
     char **mtr;
@@ -63,88 +46,6 @@ int *fill_stack(int *array_a, char *str , int* argc)
     return (array_a);
 }
 
-int only_numbers (char const *str)
-{
-    int	i;
-    int count_neg;
-    int count_pos;
-    int caracter;
-
-	i = 0;
-    count_neg = 0;
-    count_pos = 0;
-    caracter = 0;
-    while (str[i])
-	{
-        if (str[i] == '-')
-        {
-		    count_neg++;
-        }
-        else if (str[i] == '+')
-        {
-
-            count_pos++;
-        }
-        else if ((str[i] > '9' || str[i] < '0') && (str[i] != 32 || str[i] != '+' || str[i] != '-'))
-        {
-            caracter++;
-        }
-		i++;
-	}
-    i = 0;
-	while (str[i])
-	{
-		if ((count_neg >= 2 || count_pos >= 2) || (count_neg >= 1 && count_pos >= 1) || caracter >= 1)
-        {
-            
-			return (0);
-        }
-		i++;
-	}
-	return (1);
-}
-
-int ft_only_space(const char *str)
-{
-    int i;
-
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] == ' ')
-            i++;
-        else
-            return (1);
-    }
-    return (0);
-}
-int if_sorted(int *stack , int size)
-{
-    int i;
-
-    i = 0;
-    while (i < size)
-    {
-        if (stack[i] > stack[i + 1])
-            return (0);
-        i++;
-    }
-    return (1);
-}
-void error_handler(char const *str)
-{
-    if(!(only_numbers(str)))
-    {
-        ft_printf("Error");
-        exit (1);
-    }
-    if (!(ft_only_space(str)))
-    {
-        ft_printf("Error");
-        exit (1);
-    } 
-}
-
 int main(int argc, char const *argv[])
 {
     int i;
@@ -156,7 +57,9 @@ int main(int argc, char const *argv[])
     i = 1;
     if (!str)
         str = (char *)malloc(1 * sizeof(char));
-    if (argc > 1)
+    if (argc == 1)
+        exit (1);
+    else
     {
         while(i < argc)
             str = get_digits(argv[i++],str);    
@@ -173,11 +76,11 @@ int main(int argc, char const *argv[])
         }
         stack_a = ArrayLinkedList(array_a,argc);
     }
-    if (argc <= 3)
+    // if (argc <= 3)
         sort_algo1(&stack_a);
-    else if (argc <= 5)
-        sort_algo2(&stack_a, &stack_b);
-    else if (argc <= 100)
-        sort_algo3(&stack_a,&stack_b);
+    // else if (argc <= 5)
+    //     sort_algo2(&stack_a, &stack_b);
+    // else if (argc <= 100)
+    //     sort_algo3(&stack_a,&stack_b);
     return 0;
 }

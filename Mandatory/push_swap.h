@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:34 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/10 07:02:16 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/11 08:39:33 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 int	ft_atoi(char *str);
 int ft_only_space(const char *str);
+int only_numbers (char const *str);
+int has_duplicate(int *array_a, int size);
+int if_sorted(int *stack , int size);
 int ft_lstsize(t_list *list);
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);

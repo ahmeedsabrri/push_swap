@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:34 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/11 08:39:33 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/26 11:41:40 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stdio.h>
 typedef struct s_list 
 {
     int             content;
@@ -25,11 +26,7 @@ typedef struct s_list
     struct s_list   *next;
 }                   t_list;
 
-int	ft_printf(const char *format, ...);
-int	ft_putchar(int c);
-int	ft_putstr(const char *str);
-int	ft_percent(void);
-char	*ft_itoa(int n);
+
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -61,7 +58,7 @@ void rrb(t_list **b);
 void rrr(t_list **a , t_list **b);
 int max_value(t_list *tmp);
 t_list *check_argv(char const **argv);
-int	ft_isdigit(int c);
+// int	ft_isdigit(int c);
 char	*ft_strchr(const char *s, int c);
 void error_handler(char const *str);
 t_list	*ArrayLinkedList(int *arr, int size);
@@ -69,4 +66,5 @@ void sort_algo1(t_list **stack_a);
 void sort_algo2(t_list **stack_a, t_list **stack_b);
 void sort_algo3(t_list **stack_a, t_list **stack_b);
 void index_min(t_list **stack);
+void	ft_error(void);
 #endif

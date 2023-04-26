@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 08:18:37 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/11 08:18:48 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/26 10:50:19 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ void rrotation(t_list **stack)
 void rra(t_list **a)
 {
     rrotation(a);
-    ft_printf("rra\n");
+    write(1,"rra\n",4);
 }
 void rrb(t_list **b)
 {
     rrotation(b);
-    ft_printf("rrb\n");
+    write(1,"rrb\n",4);
 }
 void rrr(t_list **a , t_list **b)
 {
    rrotation(a);
    rrotation(b);
-   ft_printf("rrr\n");
+   write(1,"rrr\n",4);
 }

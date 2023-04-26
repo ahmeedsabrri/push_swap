@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 02:44:45 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/07 00:55:30 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/11 12:59:53 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void sort_algo1(t_list **stack_a)
     int max;
 
     max = max_value(*stack_a);
+    if (ft_lstsize(*stack_a) == 1)
+        return ;
     if(ft_lstsize(*stack_a) == 3)
     { 
         if ((*stack_a)->content == max)   
@@ -37,5 +39,7 @@ void sort_algo1(t_list **stack_a)
             rra(stack_a);
     }
     if ((*stack_a)->content > (*stack_a)->next->content)
+        sa(stack_a);
+    else if (ft_lstsize(*stack_a) == 2)
         sa(stack_a);
 }

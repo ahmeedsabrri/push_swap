@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 05:20:18 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/11 08:27:14 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/26 11:56:24 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,15 +236,15 @@ void sort_algo3(t_list **stack_a, t_list **stack_b)
 	
 	index_min(stack_a);
 	size = ft_lstsize(*stack_a);
-	if (size <= 150)
-		chunk = 20;
+	// if (size <= 150)
+		chunk = 50;
 	i = 0;
 	while (*stack_a)
 	{	
 		while (get_index_chunk(*stack_a ,chunk) != -1)
 			{
 				move_to_top(stack_a,get_index_chunk(*stack_a ,chunk));
-				if (get_index_chunk(*stack_a ,chunk) > (chunk - 10))
+				if (get_index_chunk(*stack_a ,chunk) > (chunk - 25))
 					{
 						pb(stack_b, stack_a);
 						rb(stack_b);
@@ -252,7 +252,7 @@ void sort_algo3(t_list **stack_a, t_list **stack_b)
 				else
 					pb(stack_b, stack_a);
 			}
-		chunk += 20;
+		chunk += 50;
 	}
 	push_stack_b(stack_b,stack_a);
 }

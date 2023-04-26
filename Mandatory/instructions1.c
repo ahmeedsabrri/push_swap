@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 17:43:03 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/11 08:18:33 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/26 10:49:11 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void swap(t_list **stack)
 void sa(t_list **stack_a)
 {
    swap(stack_a);
-   ft_printf("sa\n");
+   write(1,"sa\n",3);
 }
 
 void sb(t_list **stack_b)
 {
    swap(stack_b);
-   ft_printf("sb\n");
+   write(1,"sb\n",3);
    
 }
 
@@ -40,6 +40,6 @@ void ss(t_list **stack_b, t_list **stack_a)
 {
    swap(stack_b);
    swap(stack_a);
-   ft_printf("ss\n");
+   write(1,"ss\n",3);
 }
 

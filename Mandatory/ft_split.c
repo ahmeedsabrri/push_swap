@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:18:05 by asabri            #+#    #+#             */
-/*   Updated: 2023/03/29 03:26:02 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/11 12:29:41 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static unsigned int	getnb(char const *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		while (s[i] == c && s[i] != 0)
+		while (s[i] == c && s[i])
 			i++;
-		if (s[i] != c && s[i] != '\0')
+		if (s[i] != c && s[i])
 			count++;
 		while (s[i] != c && s[i])
 			i++;

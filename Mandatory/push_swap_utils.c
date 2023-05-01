@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 08:36:52 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/26 11:34:02 by asabri           ###   ########.fr       */
+/*   Updated: 2023/04/29 15:40:24 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	ft_only_space(const char *str)
 	}
 	return (0);
 }
-
 
 int	has_duplicate(int *array_a, int size)
 {

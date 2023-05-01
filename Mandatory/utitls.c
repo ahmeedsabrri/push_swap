@@ -6,30 +6,31 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 23:53:50 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/11 08:29:14 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/01 15:46:43 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_lstsize(t_list *list)
+int	ft_lstsize(t_list *list)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!list)
-        return (0);
-    while(list)
-    {
-        list = list->next;
-        i++;
-    }
-    return (i);
+	i = 0;
+	if (!list)
+		return (0);
+	while (list)
+	{
+		list = list->next;
+		i++;
+	}
+	return (i);
 }
+
 t_list	*ft_lstnew(int content)
 {
-	t_list	*new;
-	static int i;
+	t_list		*new;
+	static int	i;
 
 	new = malloc(sizeof (t_list));
 	if (!new)
@@ -38,6 +39,7 @@ t_list	*ft_lstnew(int content)
 	new->next = NULL;
 	return (new);
 }
+
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
@@ -64,20 +66,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		ptr->next = new;
 	}
 }
-t_list	*ArrayLinkedList(int *arr, int size)
+
+t_list	*array_linkedlist(int *arr, int size)
 {
-    int 	i;
+	int		i;
 	t_list	*stack;
 
-    i = -1;
+	i = -1;
 	stack = NULL;
-    while (++i < size)	
-        ft_lstadd_back(&stack, ft_lstnew(arr[i]));
+	while (++i < size)
+		ft_lstadd_back(&stack, ft_lstnew(arr[i]));
 	return (stack);
-}
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	new->next = *lst;
-	*lst = new;
 }

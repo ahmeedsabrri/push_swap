@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 23:53:50 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/03 19:02:00 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/03 22:21:05 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_list	*ft_lstnew(int content)
 	t_list		*new;
 	static int	i;
 
-	new = malloc(sizeof (t_list));
+	new = ft_malloc(sizeof (t_list),1);
 	if (!new)
 		return (NULL);
 	new->content = content;

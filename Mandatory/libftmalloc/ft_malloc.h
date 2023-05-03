@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_malloc.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 10:01:04 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/03 22:13:06 by asabri           ###   ########.fr       */
+/*   Created: 2023/05/03 21:49:58 by asabri            #+#    #+#             */
+/*   Updated: 2023/05/03 22:09:48 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef FT_MALLOC_H
+#define FT_MALLOC_H
 
-void	ft_error(void)
+#include<stdlib.h>
+
+typedef struct s_malloc
 {
-	write(2, "Error\n", 6);
-	ft_malloc(0,0);
-}
+    void *data;
+    struct s_malloc *next;
+} t_malloc;
+
+t_malloc *newmalloc(void *data);
+void addfront(t_malloc **head, t_malloc *new);
+void listclear(t_malloc **head);
+void *ft_malloc(size_t size,int mode);
+#endif
+

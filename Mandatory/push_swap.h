@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:34 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/03 17:03:07 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/03 22:13:45 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <stdbool.h>
+# include "libftmalloc/ft_malloc.h"
 
 typedef struct s_list
 {
@@ -27,6 +28,7 @@ typedef struct s_list
 	int				sub_index;
 	struct s_list	*next;
 }				t_list;
+
 
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);

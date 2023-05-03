@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:05 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/03 19:07:13 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/03 22:29:29 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*get_digits(char const *av, char *str )
 
 	error_handler(av);
 	tmp = ft_strjoin(str, av);
-	free(str);
 	return (tmp);
 }
 
@@ -32,16 +31,13 @@ int	*fill_stack(int *array_a, char *str, int *argc)
 	while (mtr[i])
 		i++;
 	if (!array_a)
-		array_a = (int *)malloc(i * sizeof(int));
+		array_a = (int *)ft_malloc(i * sizeof(int),1);
 	i = 0;
 	while (mtr[i])
 	{
 		array_a[i] = ft_atoi(mtr[i]);
-		free(mtr[i]);
 		i++;
 	}
-	free(mtr);
-	free(str);
 	*argc = i;
 	return (array_a);
 }
@@ -54,6 +50,7 @@ void	check_arg(int argc, t_list *stack_a, t_list *stack_b)
 		sort_algo2(&stack_a, &stack_b);
 	else
 		sort_algo3(&stack_a, &stack_b);
+	ft_malloc(0,2);
 }
 
 int	main(int argc, char const *argv[])
@@ -64,7 +61,7 @@ int	main(int argc, char const *argv[])
 	t_list	*stack_a;
 	t_list	*stack_b;
 
-	str = (char *)malloc(1 * sizeof(char));
+	str = (char *)ft_malloc(1 * sizeof(char),1);
 	*str = 0;
 	i = 1;
 	if (argc == 1)
@@ -77,7 +74,6 @@ int	main(int argc, char const *argv[])
 		if (has_duplicate(array_a, argc))
 			ft_error();
 		stack_a = array_linkedlist(array_a, argc);
-		free (array_a);
 	}
 	if (if_sorted(stack_a))
 		return (0);

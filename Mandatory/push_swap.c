@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:05 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/01 15:46:21 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/03 19:07:13 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	*fill_stack(int *array_a, char *str, int *argc)
 		i++;
 	}
 	free(mtr);
+	free(str);
 	*argc = i;
 	return (array_a);
 }
@@ -75,10 +76,12 @@ int	main(int argc, char const *argv[])
 		array_a = fill_stack(array_a, str, &argc);
 		if (has_duplicate(array_a, argc))
 			ft_error();
-		else if (if_sorted(array_a, argc))
-			ft_error();
 		stack_a = array_linkedlist(array_a, argc);
+		free (array_a);
 	}
+	if (if_sorted(stack_a))
+		return (0);
 	check_arg(argc, stack_a, stack_b);
+	system("leaks push_swap");
 	return (0);
 }

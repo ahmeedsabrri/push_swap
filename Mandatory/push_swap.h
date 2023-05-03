@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:34 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/01 15:45:17 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/03 17:03:07 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <stdio.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
@@ -35,7 +36,7 @@ int		ft_atoi(char *str);
 int		ft_only_space(const char *str);
 
 int		has_duplicate(int *array_a, int size);
-int		if_sorted(int *stack, int size);
+bool	if_sorted(t_list *stack);
 int		ft_lstsize(t_list *list);
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
@@ -52,6 +53,7 @@ void	pb(t_list **b, t_list **a);
 void	rotation(t_list **stack);
 void	ra(t_list **a);
 void	rb(t_list **b);
+void	rr(t_list **a, t_list **b);
 void	rrotation(t_list **stack);
 void	rra(t_list **a);
 void	rrb(t_list **b);

@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 08:36:52 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/29 15:40:24 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/03 16:02:21 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,18 @@ int	has_duplicate(int *array_a, int size)
 	return (0);
 }
 
-int	if_sorted(int *stack, int size)
+bool	if_sorted(t_list *stack)
 {
-	int	i;
-
-	i = 0;
-	if (size == 1)
-		return (0);
-	while (i < size)
-	{
-		if (stack[i] > stack[i + 1])
-			return (0);
-		i++;
+	if (stack)
+	{	
+		while (stack->next)
+		{
+			if (stack->content > stack->next->content)
+				return (false);
+			stack = stack->next;
+		}
 	}
-	return (1);
+	return (true);
 }
 
 void	error_handler(char const *str)

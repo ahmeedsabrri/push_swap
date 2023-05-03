@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:26:48 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/29 15:36:43 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/03 18:52:11 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,33 +58,13 @@ int	get_pos(t_list *stack, int val)
 int	min_value(t_list *stack)
 {
 	int		min;
-	t_list	*tmp;
 
-	tmp = stack;
-	min = tmp->content;
-	while (tmp)
+	min = 2147483647;
+	while (stack)
 	{
-		if (min > tmp->content)
-			min = tmp->content;
-		tmp = tmp->next;
+		if (min > stack->content)
+			min = stack->content;
+		stack = stack->next;
 	}
 	return (min);
-}
-
-int	get_next_max(int max, t_list *stack)
-{
-	t_list	*tmp;
-	int		i;
-	int		next;
-
-	tmp = stack;
-	i = 0;
-	next = min_value(stack);
-	while (tmp)
-	{
-		if (tmp->content < max && tmp->content > next)
-			next = tmp->content;
-		tmp = tmp->next;
-	}
-	return (next);
 }

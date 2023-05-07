@@ -39,10 +39,7 @@ int	has_duplicate(int *array_a, int size)
 		while (j < size)
 		{
 			if (array_a[i] == array_a[j])
-			{
-				free (array_a);
 				return (1);
-			}
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 #    By: asabri <asabri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/26 04:53:49 by asabri            #+#    #+#              #
-#    Updated: 2023/05/07 17:07:24 by asabri           ###   ########.fr        #
+#    Updated: 2023/05/07 18:11:57 by asabri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,12 @@ SRC = Mandatory/ft_strlen.c Mandatory/ft_strjoin.c Mandatory/ft_split.c \
 	Mandatory/ft_atoi.c Mandatory/ft_substr.c Mandatory/utitls.c Mandatory/instructions1.c Mandatory/instructions2.c Mandatory/instructions3.c Mandatory/instructions4.c \
 	Mandatory/sort_algo1.c Mandatory/sor_algo2.c Mandatory/sort_algo3.c Mandatory/push_swap_utils.c Mandatory/ft_error.c Mandatory/sort_algo3_utils.c Mandatory/sort_utils.c \
 	Mandatory/libftmalloc/ft_malloc.c Mandatory/libftmalloc/utils_malloc.c Mandatory/ft_parsing.c
+
 SRCB = Mandatory/ft_strlen.c Mandatory/ft_strjoin.c Mandatory/ft_split.c \
 	Mandatory/ft_atoi.c Mandatory/ft_substr.c Mandatory/utitls.c Mandatory/instructions1.c Mandatory/instructions2.c Mandatory/instructions3.c Mandatory/instructions4.c \
 	Mandatory/sort_algo1.c Mandatory/sor_algo2.c Mandatory/sort_algo3.c Mandatory/push_swap_utils.c Mandatory/ft_error.c Mandatory/sort_algo3_utils.c Mandatory/sort_utils.c \
-	Mandatory/libftmalloc/ft_malloc.c Mandatory/libftmalloc/utils_malloc.c Mandatory/ft_parsing.c bonus/checker.c bonus/ft_strcmp.c bonus/GNL/get_next_line.c bonus/GNL/get_next_line_utils.c 
+	Mandatory/libftmalloc/ft_malloc.c Mandatory/libftmalloc/utils_malloc.c Mandatory/ft_parsing.c bonus/ft_strcmp.c bonus/GNL/get_next_line.c bonus/GNL/get_next_line_utils.c 
+
 OBJS = $(SRC:.c=.o)
 OBJSB = $(SRCB:.c=.o)
 
@@ -30,7 +32,7 @@ all : $(NAME)
 		@echo "*****Compiling OBJS files*****"
 		@echo "*****Compiling OBJS files*****"
 
-%.o : %c Mandatory/push_swap.h bonus/checker.h
+%.o : %c Mandatory/push_swap.h 
 		$(CC) $(CFLAGS) -o $@ -c $<
 
 push_swap : $(OBJS) Mandatory/push_swap.o 

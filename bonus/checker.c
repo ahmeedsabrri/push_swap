@@ -6,11 +6,12 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:27:50 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/07 16:53:36 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/07 19:43:25 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
 void exec_instarc1(t_list *stack_a,t_list *stack_b,char *line)
 {
     if (!ft_strcmp(line, "pa"))
@@ -65,6 +66,7 @@ void  read_lines(t_list *stack_a, t_list *stack_b)
         free(line);
         line = get_next_line(0);
     }
+    free(line);
 }
 
 int main(int argc, char **argv)

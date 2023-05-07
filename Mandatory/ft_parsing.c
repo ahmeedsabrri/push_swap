@@ -6,11 +6,41 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:27:37 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/07 15:44:51 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/07 19:35:15 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+char	*get_digits(char const *av, char *str )
+{
+	char	*tmp;
+
+	error_handler(av);
+	tmp = ft_strjoin(str, av);
+	return (tmp);
+}
+
+int	*fill_stack(int *array_a, char *str, int *argc)
+{
+	char	**mtr;
+	int		i;
+
+	i = 0;
+	mtr = ft_split(str, ' ');
+	while (mtr[i])
+		i++;
+	if (!array_a)
+		array_a = (int *)ft_malloc(i * sizeof(int),1);
+	i = 0;
+	while (mtr[i])
+	{
+		array_a[i] = ft_atoi(mtr[i]);
+		i++;
+	}
+	*argc = i;
+	return (array_a);
+}
 
 t_list *ft_parsing(int argc,char **argv)
 {

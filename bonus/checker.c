@@ -6,61 +6,59 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:27:50 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/07 19:43:25 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/07 21:48:47 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void exec_instarc1(t_list *stack_a,t_list *stack_b,char *line)
+int exec_instarc1(t_list **stack_a,t_list **stack_b,char *line)
 {
     if (!ft_strcmp(line, "pa"))
-        push(&stack_b,&stack_a);
+        return(push(stack_b,stack_a), 1);
     else if (!ft_strcmp(line, "pb"))
-        push(&stack_a,&stack_b);
+        return(push(stack_a,stack_b), 1);
     else if (!ft_strcmp(line, "rra"))
-        rrotation(&stack_a);
+        return (rrotation(stack_a), 1);
     else if (!ft_strcmp(line, "rrb"))
-        rrotation(&stack_b);
+        return (rrotation(stack_b), 1);
     else if (!ft_strcmp(line, "rrr"))
-    {
-        rrotation(&stack_a);
-        rrotation(&stack_b);
-    }
+        return (rrotation(stack_a),rrotation(stack_b), 1);
     else 
-        ft_error();
+        return (0);
 }
 
-void exec_instarc(t_list *stack_a,t_list *stack_b,char *line)
+void exec_instarc(t_list **stack_a,t_list **stack_b,char *line)
 {
     if (!ft_strcmp(line, "sa"))
-        swap(&stack_a);
+        swap(stack_a);
     else if (!ft_strcmp(line, "sb"))
-        swap(&stack_b);
+        swap(stack_b);
     else if (!ft_strcmp(line, "ss"))
     {
-        swap(&stack_a);
-        swap(&stack_b);
+        swap(stack_a);
+        swap(stack_b);
     }
     else if (!ft_strcmp(line, "ra"))
-        rotation(&stack_a);
+        rotation(stack_a);
     else if (!ft_strcmp(line, "rb"))
-        rotation(&stack_b);
+        rotation(stack_b);
     else if (!ft_strcmp(line, "rr"))
     {
-        rotation(&stack_a);
-        rotation(&stack_b);
+        rotation(stack_a);
+        rotation(stack_b);
     }
-    else
-        exec_instarc1(stack_a,stack_b,line);
+    else if (!exec_instarc1(stack_a,stack_b,line))
+        ft_error();
+        
 }
 
-void  read_lines(t_list *stack_a, t_list *stack_b)
+void  read_lines(t_list **stack_a, t_list **stack_b)
 {
     char *line;
 
     line = get_next_line(0);
-    while (*line)
+    while (line)
     {
         exec_instarc(stack_a,stack_b,line);
         free(line);
@@ -75,12 +73,22 @@ int main(int argc, char **argv)
     t_list *stack_b;
 
     stack_b = NULL;
-    stack_a = ft_parsing(argc,argv);
-    read_lines(stack_a,stack_b);
-    if (if_sorted(stack_a))
-        write(1,"OK\n",3);
-    else
-        write(1,"KO\n",3);
+    stack_a = NULL;
+    if (argc > 1)
+    {
+        
+        stack_a = ft_parsing(argc,argv);
+        read_lines(&stack_a,&stack_b);
+        while (stack_a)
+        {
+            printf("%d",stack_a->content);
+            stack_a = stack_a->next;
+        }
+        if (if_sorted(stack_a))
+            write(1,"OK\n",3);
+        else
+            write(1,"KO\n",3);
+    }
     ft_malloc(0,1);
     return 0;
 }

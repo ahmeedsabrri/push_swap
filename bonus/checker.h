@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:28:15 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/07 18:07:00 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/07 21:08:13 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 
 int	ft_strcmp(const char *s1, const char *s2);
-void  read_lines(t_list *stack_a, t_list *stack_b);
-void exec_instarc(t_list *stack_a,t_list *stack_b,char *line);
-void exec_instarc1(t_list *stack_a,t_list *stack_b,char *line);
+void  read_lines(t_list **stack_a, t_list **stack_b);
+void exec_instarc(t_list **stack_a,t_list **stack_b,char *line);
+int exec_instarc1(t_list **stack_a,t_list **stack_b,char *line);
 #endif

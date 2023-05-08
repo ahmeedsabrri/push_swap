@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:27:50 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/07 21:48:47 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/08 02:02:23 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,12 @@ int main(int argc, char **argv)
         
         stack_a = ft_parsing(argc,argv);
         read_lines(&stack_a,&stack_b);
-        while (stack_a)
-        {
-            printf("%d",stack_a->content);
-            stack_a = stack_a->next;
-        }
-        if (if_sorted(stack_a))
+        // while (stack_a)
+        // {
+        //     printf("%d\n",stack_a->content);
+        //     stack_a = stack_a->next;
+        // }
+        if (if_sorted(stack_a) && !stack_b)
             write(1,"OK\n",3);
         else
             write(1,"KO\n",3);

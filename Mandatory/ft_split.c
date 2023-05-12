@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:18:05 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/03 22:20:24 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/11 19:03:49 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,6 @@ char const *s, char c)
 	while (s[*end] != c && s[*end] != 0)
 		*end += 1;
 }
-
-// static char	**free_(char **array)
-// {
-// 	unsigned int	i;
-
-// 	i = 0;
-// 	while (array[i])
-// 	{
-// 		free(array[i]);
-// 		i++;
-// 	}
-// 	free(array);
-// 	return (NULL);
-// }
 
 static unsigned int	getnb(char const *s, char c)
 {

@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:05 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/07 19:34:59 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/11 20:10:56 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	check_arg(int argc, t_list *stack_a, t_list *stack_b)
 		sort_algo2(&stack_a, &stack_b);
 	else
 		sort_algo3(&stack_a, &stack_b);
-	ft_malloc(0,2);
+	ft_malloc(0, 2);
 }
 
 int	main(int argc, char **argv)
@@ -28,10 +28,10 @@ int	main(int argc, char **argv)
 	t_list	*stack_a;
 	t_list	*stack_b;
 
-	stack_a = ft_parsing(argc,argv);
+	stack_b = NULL;
+	stack_a = ft_parsing(&argc, argv);
 	if (if_sorted(stack_a))
-		return (0);
+		return (ft_malloc(0, 2), 0);
 	check_arg(argc, stack_a, stack_b);
-	system("leaks push_swap");
 	return (0);
 }

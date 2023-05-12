@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:27:37 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/07 19:35:15 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/11 20:12:14 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ int	*fill_stack(int *array_a, char *str, int *argc)
 	mtr = ft_split(str, ' ');
 	while (mtr[i])
 		i++;
+	array_a = (int *)ft_malloc(i * sizeof(int), 1);
 	if (!array_a)
-		array_a = (int *)ft_malloc(i * sizeof(int),1);
+		return (ft_malloc(0, 0), NULL);
 	i = 0;
 	while (mtr[i])
 	{
@@ -42,26 +43,27 @@ int	*fill_stack(int *array_a, char *str, int *argc)
 	return (array_a);
 }
 
-t_list *ft_parsing(int argc,char **argv)
+t_list	*ft_parsing(int *argc, char **argv)
 {
-    char *str;
-    int i;
-    t_list *stack_a;
-    int		*array_a;
-    
-    str = (char *)ft_malloc(1 * sizeof(char),1);
+	char	*str;
+	int		i;
+	t_list	*stack_a;
+	int		*array_a;
+
+	str = (char *)ft_malloc(1 * sizeof(char), 1);
 	*str = 0;
 	i = 1;
-	if (argc == 1)
+	array_a = NULL;
+	if (*argc == 1)
 		exit (1);
 	else
 	{
-		while (i < argc)
+		while (i < *argc)
 			str = get_digits(argv[i++], str);
-		array_a = fill_stack(array_a, str, &argc);
-		if (has_duplicate(array_a, argc))
+		array_a = fill_stack(array_a, str, argc);
+		if (has_duplicate(array_a, *argc))
 			ft_error();
-		stack_a = array_linkedlist(array_a, argc);
+		stack_a = array_linkedlist(array_a, *argc);
 	}
-    return (stack_a);
+	return (stack_a);
 }

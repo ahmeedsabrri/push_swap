@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:55:34 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/07 15:43:41 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/11 20:23:39 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-t_list *ft_parsing(int argc,char **argv);
+t_list	*ft_parsing(int *argc, char **argv);
 char	*get_digits(char const *av, char *str );
-int	*fill_stack(int *array_a, char *str, int *argc);
+int		*fill_stack(int *array_a, char *str, int *argc);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

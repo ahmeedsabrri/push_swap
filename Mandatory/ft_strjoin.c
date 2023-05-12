@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 03:22:20 by asabri            #+#    #+#             */
-/*   Updated: 2023/05/03 22:16:54 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/08 18:52:52 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if (!(s1 && s2))
 		return (NULL);
-	str = (char *)ft_malloc(((ft_strlen(s1) + ft_strlen(s2)) + 2) * sizeof(char), 1);
+	str = (char *)ft_malloc(((ft_strlen(s1) + ft_strlen(s2)) + 2)
+			* sizeof(char), 1);
 	if (!str)
 		return (NULL);
 	while (s1[i])

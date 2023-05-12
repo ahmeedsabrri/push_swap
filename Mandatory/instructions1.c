@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 17:43:03 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/29 15:38:42 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/11 20:29:28 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	swap(t_list **stack)
 {
 	int	tmp;
 
-	tmp = (*stack)->content;
-	if ((!stack && !*stack) || ft_lstsize(*stack) <= 2)
+	if ((!stack && !*stack) || ft_lstsize(*stack) <= 1)
 		return ;
+	tmp = (*stack)->content;
 	(*stack)->content = (*stack)->next->content;
 	(*stack)->next->content = tmp;
 }

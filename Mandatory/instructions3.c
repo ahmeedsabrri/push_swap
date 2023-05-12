@@ -6,7 +6,7 @@
 /*   By: asabri <asabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 08:17:10 by asabri            #+#    #+#             */
-/*   Updated: 2023/04/29 13:59:07 by asabri           ###   ########.fr       */
+/*   Updated: 2023/05/11 20:28:47 by asabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	rotation(t_list **stack)
 	t_list	*tmp;
 	t_list	*head;
 
-	tmp = *stack;
-	head = (*stack)->next;
 	if (!*stack)
 		return ;
 	if (ft_lstsize(*stack) < 2)
 		return ;
+	tmp = *stack;
+	head = (*stack)->next;
 	ft_lstadd_back(&tmp,*stack);
 	(*stack)->next = 0;
 	(*stack) = head;

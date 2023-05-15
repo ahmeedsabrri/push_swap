@@ -1,6 +1,0 @@
-{
-    "C_Cpp.errorSquiggles": "enabled",
-    "files.associations": {
-        "push_swap.h": "c"
-    }
-}
